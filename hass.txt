@@ -1,0 +1,94 @@
+switch:
+  - platform: command_line
+    switches:
+      frontdoor_onair_mode:
+        command_on: curl --connect-timeout 3 http://10.20.30.239/onair/1
+        command_off: curl --connect-timeout 3 http://10.20.30.239/onair/0
+        friendly_name: OnAir mode
+      frontdoor_alarm_mode:
+        command_on: curl --connect-timeout 3 http://10.20.30.239/alarm/1
+        command_off: curl --connect-timeout 3 http://10.20.30.239/alarm/0
+        friendly_name: Alarm mode
+      entryway_modbus_nightmode:
+        command_on: curl --connect-timeout 3 http://10.20.30.239/nightmode/1
+        command_off: curl --connect-timeout 3 http://10.20.30.239/nightmode/0
+        friendly_name: Entryway modbus nightmode
+
+mqtt:
+  sensor:
+    - name: "main_total_energy1"
+      state_topic: "home/entryway_modbus/main_total_power1"
+      unit_of_measurement: 'kWh'
+      device_class: energy
+      state_class: total
+    - name: "main_total_energy2"
+      state_topic: "home/entryway_modbus/main_total_power2"
+      unit_of_measurement: 'kWh'
+      device_class: energy
+      state_class: total
+    - name: "main_energy_power"
+      state_topic: "home/entryway_modbus/main_energy_power"
+      unit_of_measurement: 'kW'
+      device_class: power
+      state_class: measurement
+    - name: "main_voltage"
+      state_topic: "home/entryway_modbus/main_voltage"
+      unit_of_measurement: 'V'
+      device_class: voltage
+      state_class: measurement
+    - name: "main_temperature"
+      state_topic: "home/entryway_modbus/main_temperature"
+      device_class: temperature
+      state_class: measurement
+    - name: "main_frequency"
+      state_topic: "home/entryway_modbus/main_frequency"
+      unit_of_measurement: 'Hz'
+      device_class: frequency
+      state_class: measurement
+    - name: "pv_total_energy1"
+      state_topic: "home/entryway_modbus/pv_total_power1"
+      unit_of_measurement: 'kWh'
+      device_class: energy
+      state_class: total
+    - name: "pv_total_energy2"
+      state_topic: "home/entryway_modbus/pv_total_power2"
+      unit_of_measurement: 'kWh'
+      device_class: energy
+      state_class: total
+    - name: "pv_total_energy2diff"
+      state_topic: "home/entryway_modbus/pv_total_power2diff"
+      unit_of_measurement: 'kWh'
+      device_class: energy
+      state_class: total
+    - name: "pv_energy_power"
+      state_topic: "home/entryway_modbus/pv_energy_power"
+      unit_of_measurement: 'kW'
+      device_class: power
+      state_class: measurement
+    - name: "pv_voltage"
+      state_topic: "home/entryway_modbus/pv_voltage"
+      unit_of_measurement: 'V'
+      device_class: voltage
+      state_class: measurement
+    - name: "pv_temperature"
+      state_topic: "home/entryway_modbus/pv_temperature"
+      device_class: temperature
+      state_class: measurement
+    - name: "pv_frequency"
+      state_topic: "home/entryway_modbus/pv_frequency"
+      unit_of_measurement: 'Hz'
+      device_class: frequency
+      state_class: measurement
+    - name: "livingroom_temperature"
+      state_topic: "sensors/home/livingroom/temperature"
+      device_class: temperature
+      state_class: measurement
+    - name: "kitchen_temperature"
+      state_topic: "sensors/home/kitchen/temperature"
+      device_class: temperature
+      state_class: measurement
+    - name: "htpc_rack_temperature"
+      state_topic: "sensors/home/htpc_rack/temperature"
+      device_class: temperature
+      state_class: measurement
+
