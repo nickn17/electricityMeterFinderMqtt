@@ -319,7 +319,7 @@ bool readResponse()
 void loop()
 {
   M5.update();
-  // ArduinoOTA.handle();
+  ArduinoOTA.handle();
   server.handleClient();
 
   // ###########################################################
